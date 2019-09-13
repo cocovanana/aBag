@@ -1,0 +1,8 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Cooldown name="aBagCooldown" inherits="CooldownFrameTemplate" virtual="true">
+    <EdgeTexture file="Interface\Cooldown\edge">
+      <Color r="0" g="0" b="0" a="0"/>
+    </EdgeTexture>
+	</Cooldown>
+</Ui>

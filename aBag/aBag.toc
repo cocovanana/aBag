@@ -1,0 +1,24 @@
+## Interface: 11302
+## Author: cocovanana
+## Title: aBag |cff1a9fc0Classic|r
+## Version: 1.6.4
+## Notes: One big simple bag.
+## SavedVariablesPerCharacter: bindingOne, bindingTwo
+## OptionalDeps: SortBags
+
+templates\cooldown.xml
+
+core\utils.lua
+core\config.lua
+
+modules\modules.lua
+modules\item.lua
+modules\container.lua
+modules\keyring.lua
+modules\bag.lua
+modules\bankSlots.lua
+modules\bank.lua
+#modules\reagent.lua
+
+core\bindings.lua
+core\init.lua
