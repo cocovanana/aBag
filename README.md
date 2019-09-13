@@ -9,7 +9,6 @@ Containers can have titles and different colors.
 
 All config is done in the core/config.lua file!!! There's many configuration options, so take a look!
 
-
 ## Features
   * One big bag!
   * And for bank too!
