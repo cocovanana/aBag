@@ -193,3 +193,18 @@ function L.M.bag:SetupHooks()
   self:RegisterEvent("MERCHANT_CLOSED")
   self:SetScript("OnEvent", self.OnEvent)
 end
+
+-- Override standard functions which other addons may use:
+
+ToggleAllBags = function()
+  L.M.bag:Toggle()
+end
+
+OpenAllBags = function()
+  for containerGroupId, container in pairs(L.M.bag.containers) do
+    L.M.container.DoShow(container)
+  end
+  if L.C.keyring and L.C.keyring.enabled then
+    L.M.container.DoShow(L.M.keyring.container)
+  end
+end
