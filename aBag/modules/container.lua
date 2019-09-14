@@ -81,6 +81,10 @@ function L.M.container.Create(name, cfg, containerIds, anchorTo, containerGroupI
   end
   container.frame:Hide()
 
+  if not anchorTo then
+    L.U.CreateDragFrame(container.frame)
+  end
+
   container.items = {}
 
   tinsert(UISpecialFrames, name)

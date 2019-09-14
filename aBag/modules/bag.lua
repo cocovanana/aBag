@@ -18,7 +18,6 @@ function L.M.bag:Update()
   local previousContainerGroups = self.containerGroups
   self:GenerateContainerGroups()
 
-
   for containerGroupId, containerIds in pairs(previousContainerGroups) do
     if not self.containerGroups[containerGroupId] then --unequip last bag of the group
       L.M.container.Delete(self.containers[containerGroupId])
