@@ -46,3 +46,7 @@ function L.LoadBindings()
     StaticPopup_Show("ABAG_BINDING_REQUEST")
   end
 end
+
+function aBagToggle()
+	L.M.bag:Toggle()
+end

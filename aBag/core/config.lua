@@ -1,32 +1,57 @@
 local A, L = ...
 
 L.C = {
-  itemLevelThreshold = 11,     -- shows only item level text for gear this level or higher
-  itemLevelQuality   = true,   -- colors item level text with quality colors
-  itemQualityEnabled = true,   -- colors border for non-quest items with quality colors
-  questColorEnabled  = true,   -- colors border for quest items using color defined below
-  junkIconEnabled    = true,   -- shows a golden coin for junk items
-  questColor    = {1, 1, 0},   -- color for quest items' border, default is yellow {1, 1, 0}
-  selectedColor = {0, 0.5, 1}, -- color for the highlighting slots you hover, default is cyan-ish {0, 0.5, 1}
-  colorAlpha    = 1,           -- alpha for the colored borders, default is 1
-  scale         = 0.95,        -- scale for the whole thing, default is 0.95
+  itemLevelThreshold = 11, -- show only iLevel on this level or higher. remove or =nil to hide all
+  itemLevelQuality   = true,
+  itemQualityEnabled = true, --colors non-quest items
+  questColorEnabled  = true, --colors quest items
+  junkIconEnabled    = true,
+  questColor    = {1, 1, 0},
+  selectedColor = {0, 0.5, 1},
+  colorAlpha    = 1,
+  scale         = 0.95,
   fontFamily    = STANDARD_TEXT_FONT,
   pushedTexture = "Interface\\AddOns\\"..A.."\\media\\pushed.tga",
   fontType      = "ChatFontNormal",
   highlightFile = "Interface\\Buttons\\UI-ActionButton-Border",
   glowFile      = "Interface\\AddOns\\"..A.."\\media\\glow.tga",
+  containerBackdrop = {
+    bgFile               = "Interface\\Buttons\\WHITE8x8",
+    bgColor              = {0.08, 0.08, 0.1, 0.92},
+    edgeFile             = "Interface\\Tooltips\\UI-Tooltip-Border",
+    borderColor          = {0.1, 0.1, 0.1, 0.6},
+    itemBorderColorAlpha = 0.9,
+    tile                 = false,
+    tileEdge             = false,
+    tileSize             = 16,
+    edgeSize             = 16,
+    insets               = {left = 3, right = 3, top = 3, bottom = 3}
+  },
+  itemBackdrop = {
+    bgFile               = "Interface\\Buttons\\WHITE8x8",
+    bgColor              = {0, 0, 0, 0},
+    edgeFile             = "Interface\\Tooltips\\UI-Tooltip-Border",
+    edgeColor            = {r = 1, g = 1, b = 1, a = 1},
+    borderColor          = {0.1, 0.1, 0.1, 0.6},
+    itemBorderColorAlpha = 0.9,
+    tile                 = false,
+    tileEdge             = false,
+    tileSize             = 12,
+    edgeSize             = 12,
+    insets               = {left = 3, right = 3, top = 3, bottom = 3}
+  },
   bag = {
     enabled      = true,
     containerIds = {0, 1, 2, 3, 4},
     padding      = 4,
     maxColumns   = 8,
     minColumns   = 4,
-    point        = {"BOTTOMRIGHT", -80, 80}, -- anchors to the screen, default is "BOTTOMRIGHT", -80, 80
+    point        = {"BOTTOMRIGHT", -80, 80},
     iconSize     = 42,
-    extraHeight  = 16,                       -- height of the title/gold/sort frames
+    extraHeight  = 16, --if gold, sort or title
     title = {
-      enabled    = false,                    -- shows the name of the profession/soul/ammo bags
-      anchor     = "TOPLEFT",                -- use "TOPLEFT", "TOP", or "TOPRIGHT" for left, middle and right alignment
+      enabled    = false, --show name of profession bags. color config at end of file
+      anchor     = "TOPLEFT", --use "TOPLEFT", "TOP", or "TOPRIGHT"
       offsetX    = 10,
       offsetY    = -8,
       font       = "Fonts\\FRIZQT__.TTF",
@@ -37,23 +62,23 @@ L.C = {
       fontSize   = 13
     },
     sort = {
-      enabled    = true,       -- enables the sorting dot, if SortBags addon is present
+      enabled    = true,
       size       = 14,
       doSort     = function() SortBags() end
     }
   },
   keyring = {
-    enabled      = false,      --releases in first patch after launch
+    enabled      = false, --releases in first patch after launch
     containerIds = {-2},
     padding      = 4,
     maxColumns   = 2,
     minColumns   = 1,
     point        = {"BOTTOMLEFT", -80, 80},
     iconSize     = 42,
-    extraHeight  = 16,         -- height of the title frame
+    extraHeight  = 16, --if gold, sort or title
     title = {
-      enabled    = false,      -- shows 'keyring' as title
-      anchor     = "TOPLEFT",  -- use "TOPLEFT", "TOP", or "TOPRIGHT" for left, middle and right alignment
+      enabled    = false, --show name of profession bags. color config at end of file
+      anchor     = "TOPLEFT", --use "TOPLEFT", "TOP", or "TOPRIGHT"
       offsetX    = 10,
       offsetY    = -8,
       font       = "Fonts\\FRIZQT__.TTF",
@@ -67,7 +92,7 @@ L.C = {
     padding      = 4,
     maxColumns   = 16,
     minColumns   = 4,
-    point        = {"TOPLEFT", 80, -80}, -- anchors to the screen, default is "TOPLEFT", 80, -80
+    point        = {"TOPLEFT", 80, -80},
     iconSize     = 42,
     sort = {
       enabled    = false,
@@ -75,11 +100,11 @@ L.C = {
       size       = 14,
       doSort     = function() SortBankBags() end
     },
-    anchorSlots  = "LEFT", -- "LEFT" or "RIGHT" to align slots to the left or right beneath the bank frame
-    showAllSlots = true    -- whether to show unbought bank slots
+    anchorSlots  = "LEFT", -- "LEFT" or "RIGHT"
+    showAllSlots = true -- whether to show non-buyed bank slots
   },
   reagent = {
-    enabled      = false, --wod
+    enabled      = false, --not implemented
     containerIds = {-3},
     padding      = 4,
     maxColumns   = 16,
@@ -88,8 +113,8 @@ L.C = {
     iconSize     = 42
   },
   guild = {
-    enabled      = false, --tbc
-    containerIds = {},    --possibly works different
+    enabled      = false,
+    containerIds = {}, --possibly works different
     padding      = 4,
     maxColumns   = 16,
     minColumns   = 4,
@@ -148,30 +173,5 @@ L.C = {
     "ffffff", --dummy
     "9d9d9d", --quiver
     "9d9d9d"  --ammo pouch
-  },
-  containerBackdrop = {
-    bgFile               = "Interface\\Buttons\\WHITE8x8",
-    bgColor              = {0.08, 0.08, 0.1, 0.92},
-    edgeFile             = "Interface\\Tooltips\\UI-Tooltip-Border",
-    borderColor          = {0.1, 0.1, 0.1, 0.6},
-    itemBorderColorAlpha = 0.9,
-    tile                 = false,
-    tileEdge             = false,
-    tileSize             = 16,
-    edgeSize             = 16,
-    insets               = {left = 3, right = 3, top = 3, bottom = 3}
-  },
-  itemBackdrop = {
-    bgFile               = "Interface\\Buttons\\WHITE8x8",
-    bgColor              = {0, 0, 0, 0},
-    edgeFile             = "Interface\\Tooltips\\UI-Tooltip-Border",
-    edgeColor            = {r = 1, g = 1, b = 1, a = 1},
-    borderColor          = {0.1, 0.1, 0.1, 0.6},
-    itemBorderColorAlpha = 0.9,
-    tile                 = false,
-    tileEdge             = false,
-    tileSize             = 12,
-    edgeSize             = 12,
-    insets               = {left = 3, right = 3, top = 3, bottom = 3}
   }
 }

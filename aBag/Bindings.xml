@@ -1,5 +1,5 @@
 <Bindings>
   <Binding name="ABAGTOGGLE" header="ABAG" category="ADDONS">
-    L.M.bag:Toggle()
+    aBagToggle()
   </Binding>
 </Bindings>

@@ -21,7 +21,8 @@ function L.M.container.Create(name, cfg, containerIds, anchorTo, containerGroupI
   L.U.SetSlots(container, containerIds)
   L.U.SetColumns(container, cfg)
 
-  container.frame:SetFrameStrata("BACKGROUND")
+  container.frame:SetFrameStrata("MEDIUM")
+  container.frame:SetFrameLevel(1)
   container.frame:SetScale(L.C.scale)
   container.frame:SetWidth(container.columns*cfg.iconSize + L.C.containerBackdrop.insets.left + L.C.containerBackdrop.insets.right + cfg.padding*2)
   container.frame:SetBackdrop(L.C.containerBackdrop)

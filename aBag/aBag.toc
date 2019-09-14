@@ -1,8 +1,7 @@
 ## Interface: 11302
 ## Author: cocovanana
 ## Title: aBag |cff1a9fc0Classic|r
-## Version: 1.6.5
-## Notes: One big simple bag.
+## Notes: One big bag.
 ## SavedVariablesPerCharacter: bindingOne, bindingTwo
 ## OptionalDeps: SortBags
 
