@@ -165,6 +165,8 @@ function L.M.bag:SetupHooks()
   self.hider = CreateFrame("Frame")
   self.hider:Hide()
 
+  MainMenuBarBackpackButton:HookScript("OnClick", aBagToggle)
+
   L.U.Unset(ContainerFrame1, self.hider)
   L.U.Unset(ContainerFrame2, self.hider)
   L.U.Unset(ContainerFrame3, self.hider)
