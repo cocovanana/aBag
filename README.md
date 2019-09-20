@@ -3,9 +3,9 @@ WoW Classic bag and bank addon, featuring simplicity and sleek design.
 
 ## Intro
 Extra simple bag and bank addon for simple people like me!
+Position can be adjusted using /abag. All other config is done in the core/config.lua file.
 Sorting is done using [SortBags](https://github.com/shirsig/SortBags), so you'll need to download it for the dot button to appear.
-Profession, soul, and ammo bags are displayed in separate containers.
-Containers can have titles and different colors.
+Profession and ammo bags are displayed in separate frames. Title and color can be fully customized. By default, color is the same as the main bag and title is hidden.
 
 All config is done in the core/config.lua file!!! There's many configuration options, so take a look!
 
@@ -35,3 +35,4 @@ All config is done in the core/config.lua file!!! There's many configuration opt
 * 1.4: Major bug fixes.
 * 1.5: Added support for bank slots.
 * 1.6: Added multiple configuration options for item quest/level/quality/junk.
+* 1.7: Added in-game drag configuration via /abag.

@@ -94,6 +94,7 @@ L.C = {
     minColumns   = 4,
     point        = {"TOPLEFT", 80, -80},
     iconSize     = 42,
+    extraHeight  = 16, --if gold, sort or title
     sort = {
       enabled    = false,
       height     = 16,
@@ -101,11 +102,12 @@ L.C = {
       doSort     = function() SortBankBags() end
     },
     anchorSlots  = "LEFT", -- "LEFT" or "RIGHT"
-    showAllSlots = true -- whether to show non-buyed bank slots
+    showAllSlots = true -- whether to show unbought bank slots
   },
   reagent = {
     enabled      = false, --not implemented
     containerIds = {-3},
+    extraHeight  = 16, --if gold, sort or title
     padding      = 4,
     maxColumns   = 16,
     minColumns   = 4,
