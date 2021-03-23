@@ -68,12 +68,12 @@ L.C = {
     }
   },
   keyring = {
-    enabled      = false, --releases in first patch after launch
+    enabled      = true,
     containerIds = {-2},
     padding      = 4,
     maxColumns   = 2,
     minColumns   = 1,
-    point        = {"BOTTOMLEFT", -80, 80},
+    point        = {"BOTTOMRIGHT", -80, 80}, --not used
     iconSize     = 42,
     extraHeight  = 16, --if gold, sort or title
     title = {
@@ -94,7 +94,6 @@ L.C = {
     minColumns   = 4,
     point        = {"TOPLEFT", 80, -80},
     iconSize     = 42,
-    extraHeight  = 16, --if gold, sort or title
     sort = {
       enabled    = false,
       height     = 16,
@@ -102,12 +101,11 @@ L.C = {
       doSort     = function() SortBankBags() end
     },
     anchorSlots  = "LEFT", -- "LEFT" or "RIGHT"
-    showAllSlots = true -- whether to show unbought bank slots
+    showAllSlots = true -- whether to show non-buyed bank slots
   },
   reagent = {
     enabled      = false, --not implemented
     containerIds = {-3},
-    extraHeight  = 16, --if gold, sort or title
     padding      = 4,
     maxColumns   = 16,
     minColumns   = 4,

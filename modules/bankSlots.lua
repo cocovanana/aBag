@@ -176,4 +176,5 @@ function L.M.bankSlots.BuyBankSlot()
   if not full then
     PurchaseSlot()
   end
+  L.M.bankSlots.Update(L.M.bank.bankSlots)
 end

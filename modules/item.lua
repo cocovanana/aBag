@@ -6,7 +6,11 @@ local unpack, GetContainerItemInfo, GetItemInfo, GetItemClassInfo = unpack, GetC
 local ITEM_QUALITY_COLORS, LE_ITEM_CLASS_QUESTITEM, LE_ITEM_CLASS_WEAPON, LE_ITEM_CLASS_ARMOR = ITEM_QUALITY_COLORS, LE_ITEM_CLASS_QUESTITEM, LE_ITEM_CLASS_WEAPON, LE_ITEM_CLASS_ARMOR
 
 function L.M.item.Create(containerFrame, cfg, currentContainerId, currentSlotId)
-  local item = tremove(L.ButtonPool) or CreateFrame("Button", "aItem_"..currentContainerId.."_"..currentSlotId, containerFrame, "ContainerFrameItemButtonTemplate", currentSlotId)
+  local template = "ContainerFrameItemButtonTemplate"
+  if (containerFrame == -1) then
+    template = "BankItemButtonGenericTemplate"
+  end
+  local item = tremove(L.ButtonPool) or CreateFrame("Button", "aItem_"..currentContainerId.."_"..currentSlotId, containerFrame, template, currentSlotId)
   L.M.item.ClearAllTextures(item)
 
   item:ClearAllPoints()
@@ -200,6 +204,9 @@ function L.M.item.ClearAllTextures(item)
 end
 
 function L.M.item.Select(item)
+  if item.containerId == -1 then
+    GameTooltip:SetInventoryItem("player", 47+item.slotId)
+  end
   item.selected:Show()
 end
 

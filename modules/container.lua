@@ -26,8 +26,12 @@ function L.M.container.Create(name, cfg, containerIds, anchorTo, containerGroupI
   container.frame:SetScale(L.C.scale)
   container.frame:SetWidth(container.columns*cfg.iconSize + L.C.containerBackdrop.insets.left + L.C.containerBackdrop.insets.right + cfg.padding*2)
   container.frame:SetBackdrop(L.C.containerBackdrop)
-  if (containerGroupId == 1) then
-    container.frame:SetPoint(unpack(cfg.point))
+  if containerGroupId == 1 then
+    if containerGroupName == "Keyring" then
+      container.frame:SetPoint("BOTTOMRIGHT", L.M.bag.containers[1].frame, "BOTTOMLEFT")
+    else
+      container.frame:SetPoint(unpack(cfg.point))
+    end
     container.frame:SetBackdropColor(unpack(L.C.containerBackdrop.bgColor))
     container.frame:SetBackdropBorderColor(unpack(L.C.containerBackdrop.borderColor))
 
