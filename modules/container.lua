@@ -14,7 +14,7 @@ function L.M.container.Create(name, cfg, containerIds, anchorTo, containerGroupI
   end
 
   container.cfg     = cfg
-  container.frame   = tremove(L.FramePool) or CreateFrame("Frame", name, UIParent)
+  container.frame   = tremove(L.FramePool) or CreateFrame("Frame", name, UIParent, BackdropTemplateMixin and "BackdropTemplate")
   container.frame:SetParent(UIParent)
   name = container.frame:GetName()
 
@@ -58,11 +58,27 @@ function L.M.container.Create(name, cfg, containerIds, anchorTo, containerGroupI
       container.frame.sort:SetWidth(cfg.sort.size)
       container.frame.sort:SetHeight(cfg.sort.size)
       container.frame.sort.dot = container.frame.sort:CreateFontString(name.."SortDot", "BORDER", L.C.fontType)
-      container.frame.sort.dot:SetShadowOffset(1,-1)
+      container.frame.sort.dot:SetShadowOffset(1, -1)
       container.frame.sort.dot:SetAllPoints(container.frame.sort)
       container.frame.sort.dot:SetText("|cff9d9d9d•|r")
       container.frame.sort:RegisterForClicks("AnyUp");
       container.frame.sort:SetScript("OnClick", function (self, button, down) cfg.sort.doSort() end)
+    end
+
+    if (containerGroupName ~= "Keyring" and L.C.keyring and L.C.keyring.enabled) then
+      if not container.frame.keyringToggle then
+        container.frame.keyringToggle = CreateFrame("Button", name.."KeyringToggle", container.frame)
+      end
+      container.frame.keyringToggle:SetPoint("BOTTOMLEFT", container.frame, L.C.containerBackdrop.insets.right+6+L.C.bag.sort.size, L.C.containerBackdrop.insets.bottom+4)
+      container.frame.keyringToggle:SetWidth(L.C.keyring.buttonSize)
+      container.frame.keyringToggle:SetHeight(L.C.keyring.buttonSize)
+      container.frame.keyringToggle.K = container.frame.keyringToggle:CreateFontString(name.."KeyringToggleK", "BORDER", L.C.fontType)
+      container.frame.keyringToggle.K:SetShadowOffset(1, -1)
+      container.frame.keyringToggle.K:SetAllPoints(container.frame.keyringToggle)
+      container.frame.keyringToggle.K:SetText("|cff9d9d9dK|r")
+      container.frame.keyringToggle.K:SetTextHeight(L.C.keyring.buttonSize*.8)
+      container.frame.keyringToggle:RegisterForClicks("AnyUp");
+      container.frame.keyringToggle:SetScript("OnClick", function (self, button, down) L.M.keyring.Toggle() end)
     end
   elseif cfg.title and cfg.title.enabled then
     container.frame:SetHeight(ceil(container.slots / container.columns)*cfg.iconSize + L.C.containerBackdrop.insets.top + L.C.containerBackdrop.insets.bottom + cfg.padding*2 + cfg.extraHeight)

@@ -93,7 +93,7 @@ function L.M.bag:Toggle()
   if L.C.keyring and L.C.keyring.enabled then
     if L.M.keyring.container.frame:IsShown() then
       L.M.container.DoHide(L.M.keyring.container)
-    else
+    elseif L.M.keyring.isOpen then
       L.M.container.DoShow(L.M.keyring.container)
     end
   end
@@ -108,7 +108,7 @@ function L.M.bag.OnEvent(self, e, ...)
     for containerGroupId, container in pairs(self.containers) do
       L.M.container.DoShow(container)
     end
-    if L.C.keyring and L.C.keyring.enabled then
+    if L.C.keyring and L.C.keyring.enabled and L.M.keyring.isOpen then
       L.M.container.DoShow(L.M.keyring.container)
     end
   elseif (e == "BAG_CLOSED" or e == "TRADE_CLOSED" or e == "MERCHANT_CLOSED" or e == "TRADE_SKILL_CLOSE" or e == "AUCTION_HOUSE_CLOSED" or e == "MAIL_CLOSED" or e == "BANKFRAME_CLOSED" or e == "PLAYER_LOGOUT") then
@@ -205,7 +205,7 @@ OpenAllBags = function()
   for containerGroupId, container in pairs(L.M.bag.containers) do
     L.M.container.DoShow(container)
   end
-  if L.C.keyring and L.C.keyring.enabled then
+  if L.C.keyring and L.C.keyring.enabled and L.M.keyring.isOpen then
     L.M.container.DoShow(L.M.keyring.container)
   end
 end

@@ -1,0 +1,24 @@
+## Interface: 20502
+## Author: Trincasidra
+## Title: aBag |cff1a9fc0BCC|r
+## Version: 1.8.0r
+## Notes: One big bag.
+## SavedVariablesPerCharacter: bindingOne, bindingTwo
+## OptionalDeps: SortBags
+
+templates\cooldown.xml
+
+core\utils.lua
+core\config.lua
+
+modules\modules.lua
+modules\item.lua
+modules\container.lua
+modules\keyring.lua
+modules\bag.lua
+modules\bankSlots.lua
+modules\bank.lua
+#modules\reagent.lua
+
+core\bindings.lua
+core\init.lua

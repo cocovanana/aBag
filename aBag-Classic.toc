@@ -1,5 +1,5 @@
-## Interface: 11306
-## Author: cocovanana
+## Interface: 11401
+## Author: Trincasidra
 ## Title: aBag |cff1a9fc0Classic|r
 ## Version: 1.8.0r
 ## Notes: One big bag.

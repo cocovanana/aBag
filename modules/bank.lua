@@ -35,7 +35,7 @@ function L.M.bank.OnEvent(self, e, ...)
     for bagContainerGroupId, bagContainer in pairs(L.M.bag.containers) do
       L.M.container.DoShow(bagContainer)
     end
-    if L.C.keyring and L.C.keyring.enabled then
+    if L.C.keyring and L.C.keyring.enabled and L.M.keyring.isOpen then
       L.M.container.DoShow(L.M.keyring.container)
     end
     self:Update()

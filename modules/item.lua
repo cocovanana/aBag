@@ -21,9 +21,6 @@ function L.M.item.Create(containerFrame, cfg, currentContainerId, currentSlotId)
   item:SetWidth(cfg.iconSize)
   item:SetHeight(cfg.iconSize)
   item:SetPoint("TOPLEFT", 0, 0)
-  item:SetBackdrop(L.C.itemBackdrop)
-  item:SetBackdropColor(unpack(L.C.itemBackdrop.bgColor))
-  item:SetBackdropBorderColor(unpack(L.C.itemBackdrop.borderColor))
   item:SetPushedTexture(L.C.pushedTexture)
   item:Show()
 
@@ -35,19 +32,30 @@ function L.M.item.Create(containerFrame, cfg, currentContainerId, currentSlotId)
   item.texture:SetTexCoord(0.1,0.9,0.1,0.9)
   item.texture:Hide()
 
+  if not item.backdrop then
+    item.backdrop = CreateFrame("Frame", nil, item, BackdropTemplateMixin and "BackdropTemplate")
+  end
+  item.backdrop:SetAllPoints(item)
+  item.backdrop:SetBackdrop(L.C.itemBackdrop)
+  item.backdrop:SetBackdropColor(unpack(L.C.itemBackdrop.bgColor))
+  item.backdrop:SetBackdropBorderColor(unpack(L.C.itemBackdrop.borderColor))
+  item.backdrop:Show()
+
   if not item.countText then
     item.countText = item:CreateFontString(nil, "BORDER", L.C.fontType)
   end
-  item.countText:SetShadowOffset(1,-1)
+  item.countText:SetShadowOffset(2, -2)
   item.countText:SetPoint("BOTTOMRIGHT", item, -L.C.itemBackdrop.insets.right, L.C.itemBackdrop.insets.bottom)
+  item.countText:SetFont(L.C.fontFamily, L.C.fontSize, "OUTLINE")
   item.countText:Hide()
 
   if L.C.itemLevelThreshold then
     if not item.level then
       item.level = item:CreateFontString(nil, "BORDER", L.C.fontType)
     end
-    item.level:SetShadowOffset(1,-1)
+    item.level:SetShadowOffset(2, -2)
     item.level:SetPoint("TOPLEFT", item, L.C.itemBackdrop.insets.left*2, -L.C.itemBackdrop.insets.top*2)
+    item.level:SetFont(L.C.fontFamily, L.C.fontSize, "OUTLINE")
     item.level:Hide()
   end
 

@@ -13,6 +13,7 @@ L.C = {
   fontFamily    = STANDARD_TEXT_FONT,
   pushedTexture = "Interface\\AddOns\\"..A.."\\media\\pushed.tga",
   fontType      = "ChatFontNormal",
+  fontSize      = 11, --for stuff like count or iLevel
   highlightFile = "Interface\\Buttons\\UI-ActionButton-Border",
   glowFile      = "Interface\\AddOns\\"..A.."\\media\\glow.tga",
   containerBackdrop = {
@@ -69,21 +70,12 @@ L.C = {
   },
   keyring = {
     enabled      = true,
+    buttonSize   = 14,
     containerIds = {-2},
     padding      = 4,
-    maxColumns   = 2,
+    maxColumns   = 4,
     minColumns   = 1,
-    point        = {"BOTTOMRIGHT", -80, 80}, --not used
-    iconSize     = 42,
-    extraHeight  = 16, --if gold, sort or title
-    title = {
-      enabled    = false, --show name of profession bags. color config at end of file
-      anchor     = "TOPLEFT", --use "TOPLEFT", "TOP", or "TOPRIGHT"
-      offsetX    = 10,
-      offsetY    = -8,
-      font       = "Fonts\\FRIZQT__.TTF",
-      fontSize   = 12
-    }
+    iconSize     = 42
   },
   bank = {
     enabled      = true,
