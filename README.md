@@ -14,7 +14,7 @@ All config is done in the core/config.lua file!!! There's many configuration opt
   * One big bag!
   * And for bank too!
   * Profession and ammo bags!
-  * Keyring!
+  * Toggleable keyring!
   * Item quality borders!
   * Item level!
   * Optional sorting!
@@ -22,12 +22,14 @@ All config is done in the core/config.lua file!!! There's many configuration opt
   * No searching!
   * No grouping!
   * No nothing!
+  * Also works on TBC!
 
 ## Known bugs
   * When removing a bag from the bank and placing it in the backpack or the default bank slots, its related slots are not immediately removed. Fix: click/drag any item
   * Bank main container's items' tooltips aren't displayed.
 
 ## Changelog
+  * 1.9: Fixed backdrop issues after API update, improved keyring and added support for TBC.
   * 1.8: Added keyring support.
   * 1.7: Added in-game drag configuration via /abag.
   * 1.6: Added multiple configuration options for item quest/level/quality/junk.
